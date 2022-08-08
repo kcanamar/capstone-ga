@@ -33,8 +33,8 @@ export default function Landing() {
                   So what are you waiting for signup now a see what a map can do for you.
                 </p>
                 <div className="p-5 m-auto">
-                  <Button>
-                    Signup
+                  <Button href='/login'>
+                    Register
                   </Button>
                 </div>
               </div>
