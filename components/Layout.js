@@ -1,4 +1,4 @@
-import Nav from "./nav"
+import Nav from "./Nav"
 import Socials from "./Socials"
 
 export default function Layout({ children, home }) {
