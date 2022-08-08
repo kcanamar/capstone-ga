@@ -1,5 +1,5 @@
 import { Navbar } from "flowbite-react"
-import Logout from "./Logout.js"
+import Logout from "./Logout"
 import useAuth from "../hooks/useAuth"
 
 export default function Nav() {
