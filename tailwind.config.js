@@ -13,7 +13,11 @@
   theme: {
     extend: {
       colors: {
-        'primary': "#011627",
+        'thPrimary': "#2ec4b6",
+        'thSecondary': "#ff9f1c",
+        'thPrimaryVar': "#011627",
+        'thSecondaryVar': "#e71d36",
+        'thBackground': "#fdfffc",
       }
     }
   },
