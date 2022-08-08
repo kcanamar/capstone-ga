@@ -18,7 +18,7 @@ export default function Landing() {
             <div className="p-4 m-10 max-w-md">
               <div className="p-4  text-left flex flex-col justify-center">
                 <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-thPrimary">
-                  Let's create some landmark goals and set a path to hit all of them.
+                  Let&apos; create some landmark goals and set a path to hit all of them.
                 </h1>
                 <br/>
                 <p className="font-normal text-gray-700 dark:text-gray-400">
