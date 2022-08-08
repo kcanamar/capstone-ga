@@ -12,7 +12,7 @@ export default function Landing() {
                 alt="The path to sucess"
               />
               <p className="font-normal text-gray-700 dark:text-gray-400">
-                Photo Credit: 
+                Photo Credit: <a href="https://www.artmajeur.com/en/ucagunje/artworks/11967386/road-to-nowhere" target="_blank">Dejan Gulicoski</a>
               </p>
             </div>
             <div className="p-4 m-10 max-w-md">
