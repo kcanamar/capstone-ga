@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import { Button } from 'flowbite-react'
 import { Magic } from 'magic-sdk'
 
