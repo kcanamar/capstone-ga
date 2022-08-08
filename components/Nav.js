@@ -4,7 +4,6 @@ export default function Nav() {
     return (
         <Navbar
         fluid={true}
-        rounded={true}
       >
         <Navbar.Brand href="https://flowbite.com/">
           <img
