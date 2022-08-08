@@ -10,5 +10,11 @@
   plugins: [
     require("flowbite/plugin")
   ],
-  theme: {},
+  theme: {
+    extend: {
+      colors: {
+        'primary': "#011627",
+      }
+    }
+  },
 };
