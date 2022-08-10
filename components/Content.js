@@ -1,6 +1,6 @@
 import CreateNewMap from "./map/Create";
 
-export default function DashBoard() {
+export default function Content() {
     return (
         <>
             <CreateNewMap/>
