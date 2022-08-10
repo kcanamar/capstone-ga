@@ -34,6 +34,7 @@ export default function CreateNewMap() {
             setTitle("")
             setStartDate("")
             setEndDate("")
+            // TODO Redirect after created to the single map display
         }
     }
 
