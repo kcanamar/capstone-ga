@@ -1,5 +1,5 @@
 import Layout from '../components/Layout'
-import DashboardContent from '../components/dashBoard'
+import DashboardContent from '../components/DashBoard'
 import { useState, useEffect, createContext } from "react"
 
 export const AppContext = createContext()
