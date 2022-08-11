@@ -9,7 +9,7 @@ export const AppContext = createContext()
 export default function Dashboard() {
   const { user, loading } = useAuth()
   const [mapList, setMapList] = useState([])
-
+    
   const fetchMaps = async () => {
     let fetchedMaps;
     if (!loading) {
