@@ -41,7 +41,7 @@ export default function CreateNewMap({ fetchMaps }) {
     return (
         <form>
           <div className="flex justify-center items-center">
-			<label htmlFor="map" className="invisible">Name of Map</label>
+			    <label htmlFor="map" className="invisible">Name of Map</label>
             <input
               className="w-72 h-12 border p-4 border-blue-100"
               type="text"
