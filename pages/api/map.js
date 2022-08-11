@@ -21,5 +21,17 @@ export default async function handler(req, res) {
                 console.log(err);
                 res.status(500).json({ msg: 'Error, check console'});
             }
+            break;
+
+        case "DELETE":
+            await client
+                .delete(req.body)
+                .then((res) => {
+                    req.body
+                })
+                .then((res) => console.log(`Map was deleted`))
+
+            res.status(200).json({ msg: "Success"})
+            break;
     };
 };
