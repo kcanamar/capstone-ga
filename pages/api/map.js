@@ -33,5 +33,16 @@ export default async function handler(req, res) {
 
             res.status(200).json({ msg: "Success"})
             break;
+
+        case "PUT":
+            await client
+                .patch(req.body.id._id)
+                .set({
+                    title: req.body.title
+                })
+                .commit()
+            res.status(200).json({ msg: `Succeccful update`})
+
+            break
     };
 };

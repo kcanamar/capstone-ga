@@ -1,12 +1,13 @@
 import Layout from "../../components/Layout";
 import client from "../../lib/sanity/client";
 import { getMapIds } from "../../lib/map";
+import Display from "../../components/map/Display"
 
 export default function MapDisplay({ mapData }) {
     let map = mapData[0]
     return (
         <Layout>
-            <h1>{map.title}</h1>
+            <Display map={map}/>
         </Layout>
     )
 };
