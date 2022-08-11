@@ -3,9 +3,17 @@ import { AppContext } from "../../pages/dashboard"
 import { useContext } from "react"
 import { Button } from "flowbite-react"
 import CreateMap from "./Create"
+import { getMapIds } from "../../lib/map"
 
 export default function MapList({ mapList, user}) {
     const { handleMapDelete, fetchMaps } = useContext(AppContext)
+    let pathIds = []
+    if (mapList) {
+        let mapIds = mapList.map((map) => {return {params: {id: map._id}}})
+        pathIds = mapIds
+    }
+    let bob = getMapIds()
+    console.log(bob)
     return (
         <div>
             {
@@ -31,7 +39,7 @@ export default function MapList({ mapList, user}) {
                             </div>
                         )
                         : ""
-                }) : "Link to Create Map"
+                }) : ""
             }
             <CreateMap fetchMaps={fetchMaps}/>
         </div>
