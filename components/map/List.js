@@ -7,13 +7,13 @@ import { getMapIds } from "../../lib/map"
 
 export default function MapList({ mapList, user}) {
     const { handleMapDelete, fetchMaps } = useContext(AppContext)
-    let pathIds = []
-    if (mapList) {
-        let mapIds = mapList.map((map) => {return {params: {id: map._id}}})
-        pathIds = mapIds
-    }
-    let bob = getMapIds()
-    console.log(bob)
+    // let pathIds = []
+    // if (mapList) {
+    //     let mapIds = mapList.map((map) => {return {params: {id: map._id}}})
+    //     pathIds = mapIds
+    // }
+    // let bob = getMapIds()
+    // console.log(bob)
     return (
         <div>
             {
