@@ -4,7 +4,7 @@ import DatePicker from "react-date-picker/dist/entry.nostyle";
 import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
 
-export default function CreateNewMap() {
+export default function CreateNewMap({ fetchMaps }) {
     const {user, loading} = useAuth()
     const [title, setTitle] = useState("")
     const [startDate, setStartDate] = useState("")
@@ -34,7 +34,7 @@ export default function CreateNewMap() {
             setTitle("")
             setStartDate("")
             setEndDate("")
-            // TODO Redirect after created to the single map display
+            fetchMaps()
         }
     }
 

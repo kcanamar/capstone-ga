@@ -2,9 +2,10 @@ import dayjs from "dayjs"
 import { AppContext } from "../../pages/dashboard"
 import { useContext } from "react"
 import { Button } from "flowbite-react"
+import CreateMap from "./Create"
 
 export default function MapList({ mapList, user}) {
-    const { handleMapDelete } = useContext(AppContext)
+    const { handleMapDelete, fetchMaps } = useContext(AppContext)
     return (
         <div>
             {
@@ -32,6 +33,7 @@ export default function MapList({ mapList, user}) {
                         : ""
                 }) : "Link to Create Map"
             }
+            <CreateMap fetchMaps={fetchMaps}/>
         </div>
     )
 }
