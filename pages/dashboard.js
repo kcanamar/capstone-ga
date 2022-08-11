@@ -20,8 +20,16 @@ export default function Dashboard() {
 
   useEffect(() => {fetchMaps()}, [loading, user])
   
+  const handleMapDelete = async (selectedMap) => {
+    await fetch("/api/map", {
+      method: "DELETE",
+      body: selectedMap._id,
+    })
+    await fetchMaps()
+  }
+
   return (
-    <AppContext.Provider>
+    <AppContext.Provider value={{ fetchMaps, handleMapDelete }}>
         <Layout home>
           <MapList user={user} mapList={mapList}/>
         </Layout>

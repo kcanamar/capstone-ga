@@ -1,11 +1,25 @@
 import Layout from '../components/Layout'
 import Landing from '../components/Landing'
+import Head from 'next/head'
 
 export default function Home() {
 
   return (
-    <Layout home>
-          <Landing/>
-    </Layout>
+    <>
+      <Head>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                if (document.cookie && document.cookie.includes('authed')) {
+                  window.location.href = "/dashboard"
+                }
+              `,
+            }}
+          />
+        </Head>
+      <Layout home>
+            <Landing/>
+      </Layout>
+    </>
   )
 }
