@@ -22,7 +22,7 @@ export async function getStaticPaths() {
     const paths = await getMapIds()
     return {
         paths,
-        fallback: true
+        fallback: 'blocked'
     }
 }
 
