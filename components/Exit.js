@@ -1,8 +1,9 @@
 import { Magic } from "magic-sdk";
 import { useRouter } from "next/router";
-import removeCookie from "../lib/cookie";
+import { mutate } from "swr";
+import CookieService from "../lib/cookie";
 
-export default function Logout() {
+export default function Exit() {
     const router = useRouter();
 
     const logoutUser = async () => {
@@ -10,6 +11,7 @@ export default function Logout() {
 
         try {
             await magic.user.logout();
+            await mutate(fetch('/api/logout'))
             console.log(await magic.user.isLoggedIn());
             router.push("/");
 

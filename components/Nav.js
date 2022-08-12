@@ -1,5 +1,5 @@
 import { Navbar } from "flowbite-react"
-import Logout from "./Exit"
+import Exit from "./Exit"
 import useAuth from "../hooks/useAuth"
 
 export default function Nav() {
@@ -26,7 +26,7 @@ export default function Nav() {
                 Login
           </Navbar.Link>) :
           <Navbar.Link >
-                <Logout/>
+                <Exit/>
           </Navbar.Link>}
         </Navbar.Collapse>
       </Navbar>      
