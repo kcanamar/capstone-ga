@@ -28,7 +28,6 @@ export default function UpdateMap({ map }) {
                     title: title,
                 })
             })
-
             router.reload()
         }
     }
