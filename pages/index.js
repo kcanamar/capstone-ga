@@ -12,6 +12,8 @@ export default function Home() {
               __html: `
                 if (document.cookie && document.cookie.includes('authed')) {
                   window.location.href = "/dashboard"
+                } else if (document.cookie ) {
+                  window.location.href = "/"
                 }
               `,
             }}
