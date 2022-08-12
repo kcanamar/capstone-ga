@@ -17,7 +17,7 @@ export async function getStaticPaths() {
     const paths = await getMapIds()
     return {
         paths,
-        fallback: false
+        fallback: 'blocking'
     }
 }
 
@@ -26,6 +26,7 @@ export async function getStaticProps({ params }) {
     return {
         props: {
             mapData,
-        }
+        },
+        revalidate: 1,
     }
 }
