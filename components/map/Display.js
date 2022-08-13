@@ -2,16 +2,16 @@ import dayjs from "dayjs"
 import UpdateMap from "./Update"
 import { useState, useEffect } from "react"
 
-export default function MapDisplay({ map }) {
+export default function MapDisplay({ map, setMapDisplay }) {
     
 
     return (
         <div className="flex">
             <div className="mx-4 p-4">
+            <svg onClick={() => {setMapDisplay(false)}} className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 <div className="text-center mx-4 p-6">
                     <div className="flex mx-4 p-6">
                         <h1 className="text-2xl font-bold mx-4">{map.title}</h1>
-                        
                     </div>
                     <p>Start Date:{" "}
                     <br/>{dayjs(map.start).format('MMM D, YYYY')}</p>
