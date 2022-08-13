@@ -34,7 +34,6 @@ export default function Dashboard() {
         <Layout home>
           <div className="flex">
             <MapList user={user} mapList={mapList}/>
-            <CreateMap fetchMaps={ fetchMaps }/>
           </div>
         </Layout>
     </AppContext.Provider>

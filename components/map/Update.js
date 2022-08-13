@@ -1,10 +1,10 @@
-import { useState } from "react"
-import { useRouter } from "next/router"
+import { useState, useContext } from "react"
+import { AppContext } from "../../pages/dashboard"
 
 export default function UpdateMap({ map }) {
+    const { fetchMaps } = useContext(AppContext)
     const [title, setTitle] = useState(map.title)
     const [errMessage, setErrMessage] = useState("")
-    const router = useRouter()
 
     const titleChange = async (e) => {
         e.preventDefault()
@@ -29,7 +29,7 @@ export default function UpdateMap({ map }) {
                 })
             })
 
-            router.reload()
+            fetchMaps()
         }
     }
 
