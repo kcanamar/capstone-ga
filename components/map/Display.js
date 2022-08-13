@@ -1,6 +1,7 @@
 import dayjs from "dayjs"
 import UpdateMap from "./Update"
 import { useState, useEffect } from "react"
+import GoalList from "../goal/GoalList"
 
 export default function MapDisplay({ map, setMapDisplay }) {
     
@@ -28,6 +29,7 @@ export default function MapDisplay({ map, setMapDisplay }) {
                 <hr/>
                 <br/>
                 {/* Todo build goal model and render here */}
+                <GoalList map={map}/>
             </div>
         </div>
     )
