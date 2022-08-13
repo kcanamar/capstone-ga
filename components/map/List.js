@@ -1,7 +1,6 @@
 import dayjs from "dayjs"
 import { AppContext } from "../../pages/dashboard"
 import { useContext, useState } from "react"
-import { getMapIds } from "../../lib/map"
 import Display from './Display'
 import CreateNewMap from "./Create"
 import UpdateMap from "./Update"
@@ -18,6 +17,13 @@ export default function MapList({ mapList, user}) {
     const [createShow, setCreateShow] = useState(false)
     const [howTo, setHowTo] = useState(null)
 
+    const howToToggle = (howTo) => {
+        if (howTo) {
+            setHowTo(null)
+        }
+        setHowTo(howTo)
+    }
+
     const editToggle = (map, show) => {
         setShow(!show)
         setMapUpdate(map)
@@ -28,13 +34,22 @@ export default function MapList({ mapList, user}) {
     return (
         <div className="w-screen">
             <div className="flex flex-col">
-                <div className="text-center mb-4">
-                    <button onClick={() => {!howTo ? (setHowTo(<MakeMap setHowTo={setHowTo}/>)) : setHowTo(null)}} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">How to make a Map</button>
-                    <button onClick={() => {!howTo ? (setHowTo(<MakeGoal setHowTo={setHowTo}/>)) : setHowTo(null)}} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">How to make a Goal</button>
-                    <button onClick={() => {!howTo ? (setHowTo(<MakeBenchmark setHowTo={setHowTo}/>)) : setHowTo(null)}} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">How to make a Benchmark</button>
-                    <button onClick={() => {!howTo ? (setHowTo(<MakeCelebration setHowTo={setHowTo}/>)) : setHowTo(null)}} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">How to Celebrate</button>
+                <div className="mb-4 ">
+                    <div className="text-center mb-4">
+                        <button onClick={() => {(howToToggle(<MakeMap setHowTo={setHowTo}/>))}} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">How to make a Map</button>
+                        <button onClick={() => {(howToToggle(<MakeGoal setHowTo={setHowTo}/>))}} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">How to make a Goal</button>
+                        <button onClick={() => {(howToToggle(<MakeBenchmark setHowTo={setHowTo}/>))}} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">How to make a Benchmark</button>
+                        <button onClick={() => {(howToToggle(<MakeCelebration setHowTo={setHowTo}/>))}} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">How to Celebrate</button>
+                        <button onClick={() => {setCreateShow(!createShow)}} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Create a New Map</button>
+                    </div>
                 </div>
-                <div className="text-center">{howTo}</div>
+                <div className="text-center">
+                    {howTo}
+                    <div>
+                        {createShow && <CreateNewMap fetchMaps={ fetchMaps } setCreateShow={setCreateShow}/>}
+                        {show && updateMap(mapUpdate)}
+                    </div>
+                </div>
                 <hr/>
                 <div className="mb-4 mt-4">
                     {mapDisplay && <Display map={mapDisplay} setMapDisplay={setMapDisplay}/>}
@@ -42,7 +57,7 @@ export default function MapList({ mapList, user}) {
             </div>
             {mapDisplay && <hr/>}
             <div className="mt-4">
-                <div className="flex flex-wrap justify-center overflow-auto">
+                {!mapDisplay ? (<div className="flex flex-wrap justify-center overflow-auto">
                     {
                         mapList.length >= 1
                         ? mapList.map((map) => {
@@ -50,7 +65,6 @@ export default function MapList({ mapList, user}) {
                                 ? (
                                     <div key={map._id} className="mx-4 text-center p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                                         <div className="flex justify-center">
-                                        
                                             <h5 className="mb-2 mx-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{map.title}</h5>
                                             {!show ? (<svg onClick={() => {editToggle(map, show)}} className="w-6 h-6" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" /><path fillRule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clipRule="evenodd" /></svg>) :
                                             (<svg onClick={() => {editToggle(map, show)}} className="w-6 h-6" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" /><path fillRule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clipRule="evenodd" /></svg>)}
@@ -77,15 +91,7 @@ export default function MapList({ mapList, user}) {
                                 : ""
                         }) : ""
                     }
-                </div>
-                <div className="">
-                    {!createShow ? (<div className="flex" onClick={() => {setCreateShow(true)}}><svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg><p>Create a New Map</p></div>) :
-                    (<div className="flex" onClick={() => {setCreateShow(false)}}><svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg><p>Create a New Map</p></div>)}
-                    <div>
-                        {createShow && <CreateNewMap fetchMaps={ fetchMaps } setCreateShow={setCreateShow}/>}
-                        {show && updateMap(mapUpdate)}
-                    </div>
-                </div>
+                </div>) : ""}
             </div>
         </div>
     )
