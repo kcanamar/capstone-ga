@@ -1,7 +1,6 @@
 import dayjs from "dayjs"
 import { AppContext } from "../../pages/dashboard"
 import { useContext, useState } from "react"
-import { Button } from "flowbite-react"
 import { getMapIds } from "../../lib/map"
 import Display from './Display'
 import CreateNewMap from "./Create"
@@ -51,25 +50,26 @@ export default function MapList({ mapList, user}) {
                                 ? (
                                     <div key={map._id} className="mx-4 text-center p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                                         <div className="flex justify-center">
-                                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{map.title}</h5>
-                                            {!show ? (<svg onClick={() => {editToggle(map, show)}} className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>) :
-                                            (<svg onClick={() => {editToggle(map, show)}} className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>)}
+                                        
+                                            <h5 className="mb-2 mx-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{map.title}</h5>
+                                            {!show ? (<svg onClick={() => {editToggle(map, show)}} className="w-6 h-6" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" /><path fillRule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clipRule="evenodd" /></svg>) :
+                                            (<svg onClick={() => {editToggle(map, show)}} className="w-6 h-6" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" /><path fillRule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clipRule="evenodd" /></svg>)}
                                         </div>
                                         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Start Date:{" "}{dayjs(map.start).format('MMM D, YYYY')}</p>
                                         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">End Date:{" "}{dayjs(map.end).format('MMM D, YYYY')}</p>
                                         <div className="flex mt-4 justify-center">
                                             <div className="mx-4">
-                                                <Button onClick={() => {setMapDisplay(map)}}>
+                                                <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={() => {setMapDisplay(map)}}>
                                                     Inspect
-                                                </Button>
+                                                </button>
                                             </div>
-                                            <div className="mx-4 bg-red-700">
-                                                <Button onClick={(e) => {
+                                            <div className="mx-4 ">
+                                                <button className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" onClick={(e) => {
                                                     e.preventDefault()
                                                     handleMapDelete(map)
                                                 }}>
                                                     DELETE
-                                                </Button>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
