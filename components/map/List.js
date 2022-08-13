@@ -6,6 +6,10 @@ import { getMapIds } from "../../lib/map"
 import Display from './Display'
 import CreateNewMap from "./Create"
 import UpdateMap from "./Update"
+import MakeBenchmark from "../how/Benchmark"
+import MakeMap from "../how/Map"
+import MakeGoal from "../how/Goal"
+import MakeCelebration from "../how/Celebration"
 
 export default function MapList({ mapList, user}) {
     const { handleMapDelete, fetchMaps } = useContext(AppContext)
@@ -13,6 +17,7 @@ export default function MapList({ mapList, user}) {
     const [mapUpdate, setMapUpdate] = useState(null)
     const [show, setShow] = useState(false)
     const [createShow, setCreateShow] = useState(false)
+    const [howTo, setHowTo] = useState(null)
 
     const editToggle = (map, show) => {
         setShow(!show)
@@ -25,11 +30,12 @@ export default function MapList({ mapList, user}) {
         <div className="w-screen">
             <div className="flex flex-col">
                 <div className="text-center mb-4">
-                    <button type="button" className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">How to make a Map</button>
-                    <button type="button" className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">How to make a Goal</button>
-                    <button type="button" className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900">How to make a Benchmark</button>
-                    <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">How to Celebrate</button>
+                    <button onClick={() => {!howTo ? (setHowTo(<MakeMap setHowTo={setHowTo}/>)) : setHowTo(null)}} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">How to make a Map</button>
+                    <button onClick={() => {!howTo ? (setHowTo(<MakeGoal setHowTo={setHowTo}/>)) : setHowTo(null)}} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">How to make a Goal</button>
+                    <button onClick={() => {!howTo ? (setHowTo(<MakeBenchmark setHowTo={setHowTo}/>)) : setHowTo(null)}} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">How to make a Benchmark</button>
+                    <button onClick={() => {!howTo ? (setHowTo(<MakeCelebration setHowTo={setHowTo}/>)) : setHowTo(null)}} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">How to Celebrate</button>
                 </div>
+                <div className="text-center">{howTo}</div>
                 <hr/>
                 <div className="mb-4 mt-4">
                     {mapDisplay && <Display map={mapDisplay} setMapDisplay={setMapDisplay}/>}
@@ -37,7 +43,7 @@ export default function MapList({ mapList, user}) {
             </div>
             {mapDisplay && <hr/>}
             <div className="mt-4">
-                <div className="flex flex-wrap justify-center overflow-auto overflow-hidden">
+                <div className="flex flex-wrap justify-center overflow-auto">
                     {
                         mapList.length >= 1
                         ? mapList.map((map) => {
