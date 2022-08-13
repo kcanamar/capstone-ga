@@ -3,6 +3,7 @@ import client from "../lib/sanity/client"
 import useAuth from '../hooks/useAuth'
 import { useState, useEffect, createContext } from "react"
 import MapList from '../components/map/List'
+import CreateMap from "../components/map/Create"
 
 export const AppContext = createContext()
 
@@ -31,7 +32,10 @@ export default function Dashboard() {
   return (
     <AppContext.Provider value={{ fetchMaps, handleMapDelete }}>
         <Layout home>
-          <MapList user={user} mapList={mapList}/>
+          <div className="flex">
+            <MapList user={user} mapList={mapList}/>
+            <CreateMap fetchMaps={ fetchMaps }/>
+          </div>
         </Layout>
     </AppContext.Provider>
   )
