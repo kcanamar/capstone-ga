@@ -37,7 +37,7 @@ export default function UpdateMap({ map, setShow }) {
     return (
         <div className="text-center mx-4 p-5">
             <svg onClick={() => {setShow(false)}} className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            <h1 className="text-2xl font-bold">Update your map's destination below</h1>
+            <h1 className="text-2xl font-bold">Update your map&apos;s destination below</h1>
             <form className="mt-4">
               <div className="flex justify-center items-center">
                 <input
