@@ -1,4 +1,4 @@
-export default function MakeCelebration({ setHowTo }) {
+export default function MakeTactic({ setHowTo }) {
     return (
         <div className="flex justify-center mb-4 p-4">
             <div>
@@ -6,7 +6,7 @@ export default function MakeCelebration({ setHowTo }) {
                 <div className="flex flex-col items-center mb-4 bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                     <div className="flex flex-col justify-between p-4 leading-normal">
                         <div className="flex mx-4 p-4 justify-center">
-                            <h5 className="mb-2 mx-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">W.I.I.F.M. (What&apos;s In It For Me) </h5>
+                            <h5 className="mb-2 mx-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">W.I.I.F.M. (Whats In It For Me) </h5>
                         </div>
                         <p className="mb-3 p-2 font-normal text-gray-700 dark:text-gray-400">
                             Explination of why a X is useful, the overarching philosophy.
