@@ -4,10 +4,11 @@ import landingImage from "../public/images/_road.jpeg"
 
 export default function Landing() {
     return (
-        <div className='container mx-auto my-auto align-center px-10 overflow-auto p-8'>
-          <div className="" style={{display: "flex", alignItems: "center"}}>
-            <div className="w-1/2 p-4 flex flex-col align-center">
+        <div className='flex container mx-auto mt-4 align-center px-10 overflow-auto p-8 justify-center'>
+          <div className="mt-4" style={{display: "flex", alignItems: "center"}}>
+            <div className="w-1/2 mt-4 p-4 flex flex-col align-center">
               <Image
+                className='rounded'
                 src={landingImage}
                 alt="The path to sucess"
               />
@@ -15,22 +16,22 @@ export default function Landing() {
                 Photo Credit: <a href="https://www.artmajeur.com/en/ucagunje/artworks/11967386/road-to-nowhere" target="_blank" rel="noreferrer">Dejan Gulicoski</a>
               </p>
             </div>
-            <div className="p-4 m-10 max-w-md">
-              <div className="p-4  text-left flex flex-col justify-center">
+            <div className="p-4 mx-4 max-w-lg">
+              <div className="p-4 mx-4 w-full text-left flex flex-col justify-center">
                 <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-thPrimary">
-                  Let&apos; create some landmark goals and set a path to hit all of them.
+                  Goals are just dreams until you have a Janus.
                 </h1>
                 <br/>
                 <p className="font-normal text-gray-700 dark:text-gray-400">
-                  Using our platform you will be able to create a map to success on your terms. You set the goals, we help you identify the gaps.
+                  Introducing Janus, a time managment solution. 
+                  The Romans, one of the most influential civilizations in western history, trusted Janus the god of beginnings, transitions, and ends to guide their endeavors.
                   <br/>
                   <br/>
-                  We want you to succeed, partner with us to build a unique custom strategy to complete each goal.
-                  Then set the benchmarks to create the accountablitiy and check each one off as you step ever closer to completing your goal.
+                  Today, we use Janus to illuminate our path to business and perosnal succes.
+                  You choose the goal and Janus will use its power to advise you on how to make the next move your best move. It achomplishes this by providing insights on how to construct effective tactics, benchmarks, and celebrations. Everyone deserves to celebrate more.
                   <br/>
                   <br/>
-                  Reached your goal?! Great Work! Time to enjoy the celebration we planned.
-                  So what are you waiting for signup now a see what a map can do for you.
+                  Are you ready to start living on purpose with purpose? Register below and find out how Janus can change your life.
                 </p>
                 <div className="p-5 m-auto">
                   <Button href='/login'>

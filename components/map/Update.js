@@ -30,20 +30,21 @@ export default function UpdateMap({ map, setShow }) {
             })
 
             fetchMaps()
+            setShow(false)
         }
     }
 
     return (
         <div className="text-center mx-4 p-5">
             <svg onClick={() => {setShow(false)}} className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            <h1 className="text-2xl font-bold">Update your map title below</h1>
+            <h1 className="text-2xl font-bold">Update your map's destination below</h1>
             <form className="mt-4">
               <div className="flex justify-center items-center">
                 <input
                   className="block py-2.5 text-center px-0 w-1/2 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-nonedark:border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600"
                   type="text"
                   value={title}
-                  placeholder="What will you call you map?"
+                  placeholder="What is your destination?"
                   onChange={titleChange}
                   name="title"
                 />{" "}
