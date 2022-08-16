@@ -14,7 +14,25 @@ export default function Dashboard() {
   const fetchMaps = async () => {
     let fetchedMaps;
     if (user && !loading) {
-      fetchedMaps = await client.fetch(`*[_type=='map' && user==$user] | {_id, title, start, end, user}`,{ user: user.email})
+      fetchedMaps = await client.fetch(
+        `*[ _type == 'map' && user == $user] | 
+        {
+          _id, 
+          title, 
+          start, 
+          end, 
+          user,
+          "goals": *[ _type == "goal" && map._ref == ^._id ] {
+            title,
+            celebration,
+            tactic,
+            benchmark,
+            isCompleted,
+            completedOn
+          }
+        }`
+        ,{ user: user.email}
+        )
       setMapList(fetchedMaps)
     }
   }

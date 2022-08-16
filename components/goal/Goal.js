@@ -15,11 +15,11 @@ export default function Goal({goal}) {
             <div className="">
                 <ul>
                     <li>
-                        <label className="text-sm font-medium text-gray-900 dark:text-gray-300">Title{" "}<hr/></label>
+                        <label className="text-sm font-medium text-gray-900 dark:text-gray-300">Goal{" "}<hr/></label>
                         <span className="font-light leading-tight">{goal.title}</span>
                     </li>
                     <li>
-                        <label className="text-sm font-medium text-gray-900 dark:text-gray-300">Benchmark{" "}<hr/></label>
+                        <label className="text-sm font-medium text-gray-900 dark:text-gray-300">Benchmark{" "}{goal.completedOn ? `Completed On: ${dayjs(goal.completedOn).format('MMM D, YYYY')}` : null}<hr/></label>
                         <span className="font-light leading-tight">{goal.benchmark}</span>
                     </li>
                     <li>
