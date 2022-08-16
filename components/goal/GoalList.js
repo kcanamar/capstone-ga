@@ -6,7 +6,6 @@ export default function GoalList({ goals, setGoalFormDisplay, goalFormDisplay, s
     const { fetchMaps } = useContext(AppContext)
 
     const handleGoalDelete = async (selectedGoal) => {
-        console.log(selectedGoal)
         await fetch("/api/goal", {
             method: "DELETE",
             body: selectedGoal._id
