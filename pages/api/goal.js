@@ -27,5 +27,33 @@ export default async function handler(req, res) {
                 res.status(500).json({ msg: "Error, check console"})
             }
             break;
+
+        case "PUT":
+            const result = await client
+                .patch(req.body.id._id)
+                .set({
+                    isCompleted: !req.body.isCompleted,
+                    completedOn: !!req.body.isCompleted ? "" : new Date().toISOString(),
+                })
+                .commit();
+            
+                res.status(200).json({
+                    status: result.isCompleted,
+                    completedOn: result.completedOn
+                })
+
+            break
+
+        case "DELETE":
+            await client
+                .delete(req.body)
+                .then((res) => {
+                    res.body
+                })
+                .then((res) => console.log(`Goal was deleted`))
+
+            res.status(200).json({ msg: "Success"})
+
+            break
     }
 }

@@ -22,6 +22,7 @@ export default function Dashboard() {
           end, 
           user,
           "goals": *[ _type == "goal" && map._ref == ^._id ] {
+            _id,
             title,
             celebration,
             tactic,
