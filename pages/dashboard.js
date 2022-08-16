@@ -3,7 +3,6 @@ import client from "../lib/sanity/client"
 import useAuth from '../hooks/useAuth'
 import { useState, useEffect, createContext } from "react"
 import MapList from '../components/map/List'
-import CreateMap from "../components/map/Create"
 
 export const AppContext = createContext()
 

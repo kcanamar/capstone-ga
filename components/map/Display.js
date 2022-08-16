@@ -1,10 +1,11 @@
 import dayjs from "dayjs"
-import UpdateMap from "./Update"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { AppContext } from "../../pages/dashboard"
 import GoalList from "../goal/GoalList"
+import CreateGoalForm from "../goal/CreateGoalForm"
 
 export default function MapDisplay({ map, setMapDisplay }) {
-    
+    const { fetchMaps } = useContext(AppContext)
 
     return (
         <div className="flex">
@@ -20,7 +21,7 @@ export default function MapDisplay({ map, setMapDisplay }) {
                     <br/>{dayjs(map.end).format('MMM D, YYYY')}</p>
                 </div>
                 <hr/>
-                {/* insert create a Goal */}
+                <CreateGoalForm fetchMaps={fetchMaps} setMapDisplay={setMapDisplay} map={map} />
             </div>
                 
             <div className="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
