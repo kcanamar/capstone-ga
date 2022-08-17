@@ -1,5 +1,9 @@
 # Product Requirements Documentation
 
+## Problem Being Addressed and Target Market
+
+Janus is systematic approach to time management that aims the help guide users on a path of excellence. The target market for this product would be a wide range from high school students to senior citizens. The core goal of this project is to remove some of the stress that goes into planning for the future. 
+
 **Summary**
 | Field | Detail |
 |-------|:--------:|
@@ -10,12 +14,6 @@
 | Repo | [GitHub](https://github.com/kcanamar/capstone-ga) |
 | Miro Board| [WireFrames & Planning](https://miro.com/app/board/uXjVOgupON0=/?share_link_id=956899754665)|
 
-## Landing Page
-
-![Landing](./public/images/_landingss.png)
-## Problem Being Addressed and Target Market
-
-Janus is systematic approach to time management that aims the help guide users on a path of excellence. The target market for this product would be a wide range from high school students to senior citizens. The core goal of this project is to remove some of the stress that goes into planning for the future. 
 
 ## Technologies Used
 | Front End | Backend |
@@ -26,6 +24,9 @@ Janus is systematic approach to time management that aims the help guide users o
 ![ERD](./public/images/_erd.png)
 ## WireFrame
 ![WireFrame](./public/images/_wireframe.png)
+## Landing Page
+
+![Landing](./public/images/_landingss.png)
 ## On the Horizion
 
 - Ablitiy to Add Individual Benchmarks, Tactics, and Gaps

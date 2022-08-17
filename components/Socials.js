@@ -8,7 +8,7 @@ export default function Socials() {
                     <div className="p-4 m-auto">
                         <Footer.Copyright
                             href="#"
-                            by="Logo™"
+                            by="Janus™"
                             year={2022}
                         />
                     </div>

@@ -27,7 +27,7 @@ export default function GoalList({ goals, setGoalFormDisplay, goalFormDisplay, s
                      ? goals.map((goal, idx) => {
                         return <Goal key={idx} goal={goal} handleGoalDelete={handleGoalDelete}/>
                      })
-                     : "create a goal form"
+                     : "No goals yet, click the + above to create your first goal"
                 }
             </ul>
         </div>
