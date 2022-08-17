@@ -10,7 +10,7 @@ export default async function User(req, res) {
             Iron.defaults,
         )
     } catch (error) {
-        res.status(401).end()
+       return res.status(401).end()
     }
 
     res.json(user)
